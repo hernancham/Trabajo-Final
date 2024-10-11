@@ -1,0 +1,47 @@
+#VRML V2.0 utf8	 
+
+# Fondo del mundo
+Background {
+  backUrl "./images/fondopanoramico.jpg"  # Imagen para la parte trasera del cielo
+  frontUrl "./images/fondopanoramico.jpg"  # Imagen para la parte frontal del cielo
+  leftUrl "./images/fondopanoramico.jpg"  # Imagen para el lado izquierdo
+  rightUrl "./images/fondopanoramico.jpg"  # Imagen para el lado derecho
+  topUrl "./images/cieloarriba.jpg"  # Imagen para la parte superior (cielo)
+  bottomUrl "./images/follage1.jpg"  # Imagen para la parte inferior (suelo, opcional)
+}
+
+DirectionalLight {
+  direction 0 -1 0  # Dirección de la luz, aquí es hacia abajo en el eje Y
+  intensity 1       # Intensidad de la luz (1 es el valor máximo)
+  color 1 1 0.8     # Color de la luz (ligeramente amarilla, como el sol)
+}
+
+# Luz ambiental para iluminar suavemente toda la escena
+NavigationInfo { type ["WALK", "ANY"] }
+DirectionalLight {
+  direction 0 -1 0
+  intensity 1
+  color 1 1 0.8
+}
+
+Sound {
+  location 0 1 0  # Ubicación de la fuente de sonido
+  maxBack 10
+  maxFront 10
+  intensity 1.0
+  source AudioClip {
+    url "./sounds/pigstep.wav"  # Archivo de sonido
+    loop TRUE
+  }
+}
+
+# Instancia del PROTO con Transformación
+Transform {
+  scale 0.01 0.01 0.01  # Escala el objeto
+  rotation -1 0 0 1.57  # Rotación de 90 grados sobre el eje X
+  children [
+    Inline {
+      url "edificio-esis.wrl"  # Cargar el archivo file2.wrl
+    }
+  ]
+}
