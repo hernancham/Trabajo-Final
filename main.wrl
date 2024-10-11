@@ -28,90 +28,81 @@ Sound {
   location 0 1 0  # Ubicación de la fuente de sonido
   maxBack 1000  # Máxima distancia detrás de la fuente donde se escuchará el sonido
   maxFront 1000  # Máxima distancia al frente donde se escuchará el sonido
-  intensity 0.3  # Intensidad máxima del sonido
+  intensity 1.0  # Intensidad máxima del sonido
   source AudioClip {
     url "./sounds/pigstep.wav"  # Archivo de sonido
     loop TRUE
   }
 }
 
-# Punto de vista 1 - Vista desde el frente
+# Puntos de vista generados alrededor del objeto
 Viewpoint {
-  position 0 5 10  # Ubicación en X, Y, Z
-  orientation 0 1 0 0  # Mirando directamente al frente
+  position 50 20 0
+  orientation 0 1 0 0
   description "Vista Frontal"
 }
 
-# Punto de vista 2 - Vista desde atrás
 Viewpoint {
-  position 0 5 -10  # Ubicación detrás del objeto
-  orientation 0 1 0 3.14  # Mirando hacia adelante pero desde atrás (rotación de 180 grados)
+  position -50 20 0
+  orientation 0 1 0 3.14
   description "Vista Posterior"
 }
 
-# Punto de vista 3 - Vista desde arriba
 Viewpoint {
-  position 0 15 0  # Cámara en lo alto, centrada en el objeto
-  orientation 1 0 0 -1.57  # Mirando hacia abajo (rotación de -90 grados)
-  description "Vista Superior"
-}
-
-# Punto de vista 4 - Vista desde abajo
-Viewpoint {
-  position 0 -5 0  # Cámara por debajo del objeto
-  orientation 1 0 0 1.57  # Mirando hacia arriba (rotación de 90 grados)
-  description "Vista Inferior"
-}
-
-# Punto de vista 5 - Vista lateral derecha
-Viewpoint {
-  position 10 5 0  # Cámara a la derecha del objeto
-  orientation 0 1 0 -1.57  # Mirando hacia la izquierda (rotación de -90 grados)
+  position 0 20 50
+  orientation 0 1 0 1.57
   description "Vista Lateral Derecha"
 }
 
-# Punto de vista 6 - Vista lateral izquierda
 Viewpoint {
-  position -10 5 0  # Cámara a la izquierda del objeto
-  orientation 0 1 0 1.57  # Mirando hacia la derecha (rotación de 90 grados)
+  position 0 20 -50
+  orientation 0 1 0 -1.57
   description "Vista Lateral Izquierda"
 }
 
-# Punto de vista 7 - Vista en diagonal desde arriba a la derecha
 Viewpoint {
-  position 10 10 10  # Cámara en diagonal superior derecha
-  orientation 0.5 0.5 0 0.78  # Rotación de 45 grados hacia abajo
-  description "Vista Diagonal Superior Derecha"
+  position 50 50 50
+  orientation 0 1 0 0.785
+  description "Vista Superior Frontal Derecha"
 }
 
-# Punto de vista 8 - Vista en diagonal desde arriba a la izquierda
 Viewpoint {
-  position -10 10 10  # Cámara en diagonal superior izquierda
-  orientation 0.5 -0.5 0 0.78  # Rotación de 45 grados hacia abajo
-  description "Vista Diagonal Superior Izquierda"
+  position -50 50 50
+  orientation 0 1 0 2.35
+  description "Vista Superior Posterior Derecha"
 }
 
-# Punto de vista 9 - Vista desde una esquina inferior derecha
 Viewpoint {
-  position 10 -5 10  # Cámara en diagonal inferior derecha
-  orientation -0.5 0.5 0 0.78  # Rotación de 45 grados hacia arriba
-  description "Vista Diagonal Inferior Derecha"
+  position 50 50 -50
+  orientation 0 1 0 -0.785
+  description "Vista Superior Frontal Izquierda"
 }
 
-# Punto de vista 10 - Vista desde una esquina inferior izquierda
 Viewpoint {
-  position -10 -5 10  # Cámara en diagonal inferior izquierda
-  orientation -0.5 -0.5 0 0.78  # Rotación de 45 grados hacia arriba
-  description "Vista Diagonal Inferior Izquierda"
+  position -50 50 -50
+  orientation 0 1 0 -2.35
+  description "Vista Superior Posterior Izquierda"
+}
+
+Viewpoint {
+  position 0 50 0
+  orientation 0 1 0 0
+  description "Vista Directamente desde Arriba"
+}
+
+Viewpoint {
+  position 0 -50 0
+  orientation 0 1 0 3.14
+  description "Vista desde Abajo"
 }
 
 # Instancia del PROTO con Transformación
 Transform {
-  scale 0.001 0.001 0.001  # Escala el objeto
+  scale 0.002 0.002 0.002  # Escala el objeto
   rotation -1 0 0 1.57  # Rotación de 90 grados sobre el eje X
   children [
     Inline {
-      url "edificio-esis.wrl"  # Cargar el archivo file2.wrl
+      url "edificio.wrl"  # Cargar el archivo file2.wrl
     }
   ]
 }
